@@ -18,7 +18,13 @@ module.exports = {
       }
     ]
   },
-  transpilePackages: ['dayjs']
+  transpilePackages: ['dayjs'],
+  webpack: (config, { isServer }) => {
+    // 将 webpack 的缓存策略设置为 false
+    config.cache = false;
+    
+    return config;
+  }
   // webpack: (config, { dev, isServer }) => {
   //   // Replace React with Preact only in client production build
   //   if (!dev && !isServer) {
